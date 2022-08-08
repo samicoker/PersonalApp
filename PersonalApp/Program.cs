@@ -148,7 +148,7 @@ namespace PersonalApp
                         UpdateDepartmentMenuView();
                         break;
                     case "4":
-                        DeleteDepartment();
+                        DeleteDepartmentView();
                         break;
                     case "5":
                         PersonalListInDepartmentView();
@@ -179,7 +179,7 @@ namespace PersonalApp
         /// <summary>
         /// Departman silme fonksiyonu. Eğer departmanda personel varsa silinemez
         /// </summary>
-        private static void DeleteDepartment()
+        private static void DeleteDepartmentView()
         {
             DepartmentManager departmentManager = new DepartmentManager();
             PersonalManager personalManager = new PersonalManager();
@@ -340,32 +340,7 @@ namespace PersonalApp
             else
                 return;
         }
-        /// <summary>
-        /// Silinmek istenen personelin tespiti için kullanıcıya personelleri isim, soyisim ve id properyleri ile listelenir, kullanıcıdan seçmesi istenir ve kullanıcının girdiği Id alınır
-        /// </summary>
-        /// <returns></returns>
-        private static int GetPersonalIdFromList()
-        {
-            PersonalManager personalManager = new PersonalManager();
-            foreach (var personal in personalManager.GetList())
-            {
-                Console.WriteLine(personal.Id + ": " + personal.Name + " " + personal.Surname);
-            }
-            int id;
-            while (true)
-            {
-                Console.Write("Silinecek personeli seçiniz: ");
-                id = Convert.ToInt32(Console.ReadLine());
-
-                if (!personalManager.Any(id))
-                {
-                    PrintInputErrorMessage();
-                    continue;
-                }
-                break;
-            }
-            return id;
-        }
+        
         /// <summary>
         /// Parametre olarak gönderilen personelin bilgilerini ekrana yazdırır.
         /// </summary>
@@ -482,9 +457,6 @@ namespace PersonalApp
                 Console.WriteLine("Lütfen geçerli bir isim giriniz!");
 
             }
-            //Console.WriteLine("Ad: ");
-            //var name = Console.ReadLine();
-
             string surname;
             while (true)
             {
@@ -509,6 +481,11 @@ namespace PersonalApp
             };
             return personal;
         }
+        /// <summary>
+        /// Kullanıcıdan string olarak alınan inputları DateTime'ye çevirir
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         private static DateTime EnterDatetime(string message)
         {
             while (true)
