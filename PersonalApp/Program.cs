@@ -469,8 +469,6 @@ namespace PersonalApp
                 Console.WriteLine("Lütfen geçerli bir soyisim giriniz!");
             }
 
-            surname = Console.ReadLine();
-
             var departmentId = ChooseDepartment();
 
             var personal = new Personal
