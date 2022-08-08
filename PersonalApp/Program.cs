@@ -448,7 +448,7 @@ namespace PersonalApp
             string name;
             while (true)
             {
-                Console.WriteLine("İsim: ");
+                Console.Write("İsim: ");
                 name = Console.ReadLine();
                 if (name != string.Empty)
                 {
@@ -460,7 +460,7 @@ namespace PersonalApp
             string surname;
             while (true)
             {
-                Console.WriteLine("Soyisim: ");
+                Console.Write("Soyisim: ");
                 surname = Console.ReadLine();
                 if (surname != string.Empty)
                 {
